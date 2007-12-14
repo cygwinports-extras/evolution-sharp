@@ -4,10 +4,10 @@ evolution-sharp
 
 Runtime requirements:
   cygwin-1.5.24-2
-  evolution-data-server-1.10.3.1-1
-  glib-sharp2-2.10.1-1
-  glib2-2.12.13-1
-  mono-1.2.4-1
+  evolution-data-server-1.12.2-1
+  glib-sharp2-2.10.2-1
+  glib2-2.12.4-1
+  mono-1.2.5-1
 
 Build requirements:
 (besides corresponding -devel packages)
@@ -15,7 +15,7 @@ Build requirements:
   autoconf2.5-2.61-1
   automake1.9-1.9.6-2
   binutils-20060817-1
-  cygport-0.3.5-1
+  cygport-0.3.7-1
   gawk-3.1.5-4
   gcc-core-3.4.4-3
   libtool1.5-1.5.23a-2
@@ -32,15 +32,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack evolution-sharp-0.12.4-X-src.tar.bz2
+  unpack evolution-sharp-0.15.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./evolution-sharp-0.12.4-X.cygport all
+  cygport ./evolution-sharp-0.15.1-X.cygport all
 
 This will create:
-  /usr/src/evolution-sharp-0.12.4-X-src.tar.bz2
-  /usr/src/evolution-sharp-0.12.4-X.tar.bz2
+  /usr/src/evolution-sharp-0.15.1-X-src.tar.bz2
+  /usr/src/evolution-sharp-0.15.1-X.tar.bz2
 
 -------------------------------------------
 
@@ -49,23 +49,25 @@ Files included in the binary package:
   /usr/bin/cygevolutionglue.dll
   /usr/lib/libevolutionglue.la
   /usr/lib/mono/evolution-sharp/evolution-sharp.dll
-  /usr/lib/mono/gac/evolution-sharp/2.0.0.0__457eed85bd9370df/evolution-sharp.dll
-  /usr/lib/mono/gac/evolution-sharp/2.0.0.0__457eed85bd9370df/evolution-sharp.dll.config
-  /usr/lib/mono/gac/evolution-sharp/2.0.0.0__457eed85bd9370df/evolution-sharp.dll.mdb
+  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll
+  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll.config
+  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll.mdb
   /usr/lib/pkgconfig/evolution-sharp.pc
-  /usr/share/doc/Cygwin/evolution-sharp-0.12.4.README
-  /usr/share/doc/evolution-sharp-0.12.4/AUTHORS
-  /usr/share/doc/evolution-sharp-0.12.4/COPYING
-  /usr/share/doc/evolution-sharp-0.12.4/ChangeLog
-  /usr/share/doc/evolution-sharp-0.12.4/INSTALL
-  /usr/share/doc/evolution-sharp-0.12.4/MAINTAINERS
-  /usr/share/doc/evolution-sharp-0.12.4/NEWS
-  /usr/share/doc/evolution-sharp-0.12.4/README
+  /usr/share/doc/evolution-sharp-0.15.1/AUTHORS
+  /usr/share/doc/evolution-sharp-0.15.1/COPYING
+  /usr/share/doc/evolution-sharp-0.15.1/ChangeLog
+  /usr/share/doc/evolution-sharp-0.15.1/INSTALL
+  /usr/share/doc/evolution-sharp-0.15.1/MAINTAINERS
+  /usr/share/doc/evolution-sharp-0.15.1/NEWS
+  /usr/share/doc/evolution-sharp-0.15.1/README
   /usr/share/gapi-2.0/evolution-api.xml
 
 ------------------
 
 Port Notes:
+
+----- version 0.15.1-1 -----
+Version bump for e-d-s 0.12.
 
 ----- version 0.12.4-1 -----
 Initial release for Cygwin.
