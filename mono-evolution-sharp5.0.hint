@@ -1,0 +1,5 @@
+category: DotNET Gnome
+requires: libebackend1.2_0 libebook1.2_9 libecal1.2_7 libedata-cal1.2_6 libedataserver1.2_11 libgcc1 libglib2.0_0 libical0 mono mono-glib-sharp2.0
+external-source: evolution-sharp
+sdesc: ".NET Evolution Data Server bindings"
+ldesc: ".NET Evolution Data Server bindings"

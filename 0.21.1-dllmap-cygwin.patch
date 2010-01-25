@@ -1,14 +1,6 @@
---- origsrc/evolution-sharp-0.15.1/configure.in	2007-10-30 08:47:37.000000000 -0500
-+++ src/evolution-sharp-0.15.1/configure.in	2007-12-14 07:24:46.927250000 -0600
-@@ -5,6 +5,7 @@
- AM_MAINTAINER_MODE
- 
- AC_PROG_INSTALL
-+AM_DISABLE_STATIC
- AM_PROG_LIBTOOL
- 
- AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
-@@ -85,17 +86,28 @@
+--- origsrc/evolution-sharp-0.21.1/configure.in	2010-01-25 03:29:09.965961100 -0600
++++ src/evolution-sharp-0.21.1/configure.in	2010-01-04 17:10:49.953632500 -0600
+@@ -98,17 +98,28 @@ if test "x$GACUTIL" = "xno"; then
  	AC_MSG_ERROR([Your mono installation doesn't expose gacutil])
  fi
  
@@ -41,21 +33,25 @@
 +AC_SUBST(LIB_MIDDLE)
  AC_SUBST(LIB_SUFFIX)
  
- PKG_CHECK_MODULES(GTK_SHARP, gtk-sharp-2.0 >= 2.4.0)
---- origsrc/evolution-sharp-0.15.1/evolution/evolution-sharp.dll.config.in	2007-06-19 21:17:29.000000000 -0500
-+++ src/evolution-sharp-0.15.1/evolution/evolution-sharp.dll.config.in	2007-12-14 07:24:46.942875000 -0600
-@@ -1,5 +1,5 @@
+ PKG_CHECK_MODULES([GLIB_SHARP],
+--- origsrc/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2010-01-25 03:29:09.972961500 -0600
++++ src/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2010-01-25 03:30:12.895560500 -0600
+@@ -1,7 +1,7 @@
  <configuration>
 -  <dllmap dll="ebook" target="libebook@EDS_VERSION@@LIB_PREFIX@.@EBOOK_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="ecal" target="libecal@EDS_VERSION@@LIB_PREFIX@.@ECAL_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="edataserver" target="libedataserver@EDS_VERSION@@LIB_PREFIX@.@EDS_SOVERSION@@LIB_SUFFIX@"/>
+-  <dllmap dll="ebackend" target="libebackend@EDS_VERSION@@LIB_PREFIX@.@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
+-  <dllmap dll="edatacal" target="libedata-cal@EDS_VERSION@@LIB_PREFIX@.@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
 +  <dllmap dll="ebook" target="@LIB_PREFIX@ebook@EDS_VERSION@@LIB_MIDDLE@@EBOOK_SOVERSION@@LIB_SUFFIX@"/>
 +  <dllmap dll="ecal" target="@LIB_PREFIX@ecal@EDS_VERSION@@LIB_MIDDLE@@ECAL_SOVERSION@@LIB_SUFFIX@"/>
 +  <dllmap dll="edataserver" target="@LIB_PREFIX@edataserver@EDS_VERSION@@LIB_MIDDLE@@EDS_SOVERSION@@LIB_SUFFIX@"/>
++  <dllmap dll="ebackend" target="@LIB_PREFIX@ebackend@EDS_VERSION@@LIB_MIDDLE@@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
++  <dllmap dll="edatacal" target="@LIB_PREFIX@edata-cal@EDS_VERSION@@LIB_MIDDLE@@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
  </configuration>
---- origsrc/evolution-sharp-0.15.1/glue/Makefile.am	2007-06-19 21:17:30.000000000 -0500
-+++ src/evolution-sharp-0.15.1/glue/Makefile.am	2007-12-14 07:24:46.958500000 -0600
-@@ -27,7 +27,7 @@
+--- origsrc/evolution-sharp-0.21.1/glue/Makefile.am	2010-01-25 03:29:09.976961700 -0600
++++ src/evolution-sharp-0.21.1/glue/Makefile.am	2010-01-04 17:10:48.000000000 -0600
+@@ -27,7 +27,7 @@ libevolutionglue_la_SOURCES = \
  	$(ECAL_GLUE_SOURCES) \
  	$(EBOOK_GLUE_SOURCES)
  

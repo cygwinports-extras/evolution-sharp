@@ -1,4 +1,0 @@
-category: Dotnet Gnome
-requires: evolution-data-server glib2 mono glib-sharp2
-sdesc: ".NET Evolution Data Server bindings"
-ldesc: ".NET Evolution Data Server bindings"
