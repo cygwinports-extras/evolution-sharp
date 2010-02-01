@@ -3,24 +3,30 @@ evolution-sharp
 .NET bindings for Evolution-data-server libraries
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  evolution-data-server-1.12.2-1
-  glib-sharp2-2.10.2-1
-  glib2-2.12.4-1
-  mono-1.2.5-1
+  cygwin-1.7.1-1
+  libebackend1.2_0-2.28.2-1
+  libebook1.2_9-2.28.2-1
+  libecal1.2_7-2.28.2-1
+  libedata-cal1.2_6-2.28.2-1
+  libedataserver1.2_11-2.28.2-1
+  libgcc1-4.3.4-3
+  libglib2.0_0-2.22.4-2
+  libical0-0.44-1
+  mono-2.4.3.1-1
+  mono-glib-sharp2.0-2.12.9-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-2
-  autoconf2.5-2.61-1
-  automake1.9-1.9.6-2
-  binutils-20060817-1
-  cygport-0.3.7-1
-  gawk-3.1.5-4
-  gcc-core-3.4.4-3
-  libtool1.5-1.5.23a-2
-  make-3.81-1
-  pkg-config-0.21-1
+  autoconf2.5-2.65-1
+  automake1.10-1.10.3-1
+  binutils-2.19.51-1
+  cygport-0.9.80-1
+  gapi2-2.12.9-1
+  gawk-3.1.7-1
+  gcc4-core-4.3.4-3
+  libtool-2.2.7a-15
+  make-3.81-2
+  pkg-config-0.23b-10
   sed-4.1.5-2
 
 Canonical website:
@@ -32,45 +38,25 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack evolution-sharp-0.15.1-X-src.tar.bz2
+  unpack evolution-sharp-0.21.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./evolution-sharp-0.15.1-X.cygport all
+  cygport ./evolution-sharp-0.21.1-X.cygport all
 
 This will create:
-  /usr/src/evolution-sharp-0.15.1-X-src.tar.bz2
-  /usr/src/evolution-sharp-0.15.1-X.tar.bz2
+  /usr/src/evolution-sharp-0.21.1-X-src.tar.bz2
+  /usr/src/evolution-sharp-0.21.1-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
-
-  /usr/bin/cygevolutionglue.dll
-  /usr/lib/libevolutionglue.la
-  /usr/lib/mono/evolution-sharp/evolution-sharp.dll
-  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll
-  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll.config
-  /usr/lib/mono/gac/evolution-sharp/3.0.0.0__457eed85bd9370df/evolution-sharp.dll.mdb
-  /usr/lib/pkgconfig/evolution-sharp.pc
-  /usr/share/doc/evolution-sharp-0.15.1/AUTHORS
-  /usr/share/doc/evolution-sharp-0.15.1/COPYING
-  /usr/share/doc/evolution-sharp-0.15.1/ChangeLog
-  /usr/share/doc/evolution-sharp-0.15.1/INSTALL
-  /usr/share/doc/evolution-sharp-0.15.1/MAINTAINERS
-  /usr/share/doc/evolution-sharp-0.15.1/NEWS
-  /usr/share/doc/evolution-sharp-0.15.1/README
-  /usr/share/gapi-2.0/evolution-api.xml
-
-------------------
-
 Port Notes:
 
------ version 0.15.1-1 -----
-Version bump for e-d-s 0.12.
+----- version 0.21.1-2 -----
+Fixed DllImport for libebackend functions.
 
------ version 0.12.4-1 -----
-Initial release for Cygwin.
+----- version 0.21.1-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:

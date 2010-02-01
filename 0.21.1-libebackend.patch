@@ -1,0 +1,27 @@
+--- origsrc/evolution-sharp-0.21.1/evolution/evolution-api.raw	2009-05-26 02:25:06.000000000 -0500
++++ src/evolution-sharp-0.21.1/evolution/evolution-api.raw	2010-01-31 21:30:37.036478600 -0600
+@@ -4420,6 +4420,12 @@
+         <return-type type="const-char*" />
+       </method>
+     </object>
++    <struct name="DataCal" cname="EDataCal" opaque="true" />
++    <struct name="DataCalClass" cname="EDataCalClass" opaque="true" />
++    <struct name="DataCalView" cname="EDataCalView" opaque="true" />
++    <struct name="DataCalViewClass" cname="EDataCalViewClass" opaque="true" />
++  </namespace>
++  <namespace name="E" library="ebackend">
+     <object name="FileCache" cname="EFileCache" parent="GObject">
+       <field name="Priv" cname="priv" type="EFileCachePrivate*" />
+       <property name="Filename" cname="filename" type="gchar*" readable="true" writeable="true" construct-only="true" />
+@@ -4479,9 +4485,5 @@
+         <return-type type="void" />
+       </method>
+     </object>
+-    <struct name="DataCal" cname="EDataCal" opaque="true" />
+-    <struct name="DataCalClass" cname="EDataCalClass" opaque="true" />
+-    <struct name="DataCalView" cname="EDataCalView" opaque="true" />
+-    <struct name="DataCalViewClass" cname="EDataCalViewClass" opaque="true" />
+   </namespace>
+-</api>
+\ No newline at end of file
++</api>
