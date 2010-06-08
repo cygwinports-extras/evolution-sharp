@@ -1,0 +1,52 @@
+--- origsrc/evolution-sharp-0.21.1/configure.in	2010-06-07 18:16:51.487990100 -0500
++++ src/evolution-sharp-0.21.1/configure.in	2010-06-07 14:19:33.717636200 -0500
+@@ -16,8 +16,9 @@ fi
+ PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_1_8, evolution-data-server-1.2 >= 1.8 evolution-data-server-1.2 < 1.9, edsver="1.8", AC_MSG_RESULT([no]))
+ PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_1_9, evolution-data-server-1.2 >= 1.9 evolution-data-server-1.2 < 1.10, edsver="1.9", AC_MSG_RESULT([no]))
+ PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_1_10, evolution-data-server-1.2 >= 1.10 evolution-data-server-1.2 < 2.23.92, edsver="1.10", AC_MSG_RESULT([no]))
+-PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_2_24, evolution-data-server-1.2 >= 2.23.92 evolution-data-server-1.2 < 2.27.4, edsver="2.24", AC_MSG_RESULT([no]))
+-PKG_CHECK_MODULES(TOO_NEW_EDS, evolution-data-server-1.2 >= 2.27.4, edsver="unsupported", AC_MSG_RESULT([no]))
++PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_2_24, evolution-data-server-1.2 >= 2.23.92 evolution-data-server-1.2 < 2.29.0, edsver="2.24", AC_MSG_RESULT([no]))
++PKG_CHECK_MODULES(EVOLUTION_DATA_SERVER_2_30, evolution-data-server-1.2 >= 2.29.5 evolution-data-server-1.2 < 2.31.0, edsver="2.30", AC_MSG_RESULT([no]))
++PKG_CHECK_MODULES(TOO_NEW_EDS, evolution-data-server-1.2 >= 2.31.0, edsver="unsupported", AC_MSG_RESULT([no]))
+ 
+ if test "x$edsver" = "x1.8"; then
+ 	EDS_VERSION=-1.2
+@@ -39,6 +40,13 @@ elif test "x$edsver" = "x2.24"; then
+ 	ECAL_SOVERSION=7
+ 	EBACKEND_SOVERSION=0
+ 	EDATACAL_SOVERSION=6
++elif test "x$edsver" = "x2.30"; then
++	EDS_VERSION=-1.2
++	EDS_SOVERSION=11
++	EBOOK_SOVERSION=9
++	ECAL_SOVERSION=7
++	EBACKEND_SOVERSION=0
++	EDATACAL_SOVERSION=7
+ elif test "x$edsver" = "xunsupported"; then
+ 	AC_MSG_ERROR([
+ 
+@@ -87,6 +95,7 @@ AM_CONDITIONAL(USE_EDS_1_8, test "x$edsv
+ AM_CONDITIONAL(USE_EDS_1_9, test "x$edsver" = "x1.9")
+ AM_CONDITIONAL(USE_EDS_1_10, test "x$edsver" = "x1.10")
+ AM_CONDITIONAL(USE_EDS_2_24, test "x$edsver" = "x2.24")
++AM_CONDITIONAL(USE_EDS_2_30, test "x$edsver" = "x2.30")
+ 
+ PKG_CHECK_MODULES(MONO, mono >= 1.0.0)
+ AC_PATH_PROG(CSC, mcs, no)
+--- origsrc/evolution-sharp-0.21.1/evolution/Makefile.am	2010-06-07 14:16:25.042844700 -0500
++++ src/evolution-sharp-0.21.1/evolution/Makefile.am	2010-06-07 14:24:28.119475100 -0500
+@@ -25,6 +25,13 @@ SOURCES_2_24 = src/CalComponentDateTime.
+ CSFLAGS = -define:USE_EDS_2_24
+ endif
+ 
++if USE_EDS_2_30
++RAW_API = evolution-api.raw
++CUSTOMS_2_24 = Icaltimetype.custom CalBackend.custom CalBackendCache.custom CalBackendSExp.custom
++SOURCES_2_24 = src/CalComponentDateTime.cs src/CalCompChanges.cs
++CSFLAGS = -define:USE_EDS_2_24
++endif
++
+ API=evolution-api.xml
+ METADATA = Evolution.metadata
+ ASSEMBLY_NAME = evolution-sharp

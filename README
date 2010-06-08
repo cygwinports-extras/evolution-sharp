@@ -3,31 +3,30 @@ evolution-sharp
 .NET bindings for Evolution-data-server libraries
 
 Runtime requirements:
-  cygwin-1.7.1-1
-  libebackend1.2_0-2.28.2-1
-  libebook1.2_9-2.28.2-1
-  libecal1.2_7-2.28.2-1
-  libedata-cal1.2_6-2.28.2-1
-  libedataserver1.2_11-2.28.2-1
+  cygwin-1.7.5-1
+  libebackend1.2_0-2.30.1-1
+  libebook1.2_9-2.30.1-1
+  libecal1.2_7-2.30.1-1
+  libedata-cal1.2_7-2.30.1-1
+  libedataserver1.2_11-2.30.1-1
   libgcc1-4.3.4-3
   libglib2.0_0-2.22.4-2
   libical0-0.44-1
   mono-2.4.3.1-1
-  mono-glib-sharp2.0-2.12.9-1
+  mono-glib-sharp2.0-2.12.10-1
 
 Build requirements:
 (besides corresponding -devel packages)
   autoconf2.5-2.65-1
   automake1.10-1.10.3-1
-  binutils-2.19.51-1
-  cygport-0.9.80-1
-  gapi2-2.12.9-1
+  binutils-2.20.51-2
+  cygport-0.9.84-1
+  gapi2-2.12.10-1
   gawk-3.1.7-1
   gcc4-core-4.3.4-3
   libtool-2.2.7a-15
   make-3.81-2
   pkg-config-0.23b-10
-  sed-4.1.5-2
 
 Canonical website:
   http://www.gnome.org/projects/evolution/
@@ -51,6 +50,9 @@ This will create:
 -------------------------------------------
 
 Port Notes:
+
+----- version 0.21.1-3 -----
+Rebuilt for E-D-S 2.30 (ABI bump in libedata-cal).
 
 ----- version 0.21.1-2 -----
 Fixed DllImport for libebackend functions.
