@@ -49,14 +49,3 @@
 +  <dllmap dll="ebackend" target="@LIB_PREFIX@ebackend@EDS_VERSION@@LIB_MIDDLE@@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
 +  <dllmap dll="edatacal" target="@LIB_PREFIX@edata-cal@EDS_VERSION@@LIB_MIDDLE@@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
  </configuration>
---- origsrc/evolution-sharp-0.21.1/glue/Makefile.am	2010-01-25 03:29:09.976961700 -0600
-+++ src/evolution-sharp-0.21.1/glue/Makefile.am	2010-01-04 17:10:48.000000000 -0600
-@@ -27,7 +27,7 @@ libevolutionglue_la_SOURCES = \
- 	$(ECAL_GLUE_SOURCES) \
- 	$(EBOOK_GLUE_SOURCES)
- 
--libevolutionglue_la_LDFLAGS = -module -avoid-version -no-undefined
-+libevolutionglue_la_LDFLAGS = -avoid-version -no-undefined
- 
- libevolutionglue_la_LIBADD =		\
- 	$(LIBECAL_LIBS)			\
