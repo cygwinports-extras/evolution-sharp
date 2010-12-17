@@ -6,11 +6,11 @@ HOMEPAGE="http://www.gnome.org/projects/evolution/"
 PATCH_URI="
 	mirror://portage/dev-dotnet/${PN}/files/${P}-gtk-sharp-dropped.patch
 	0.21.1-dllmap-cygwin.patch
-	0.21.1-eds-2-30.patch
+	0.21.1-eds-2-32.patch
 	0.21.1-libebackend.patch
 "
 
-PKG_NAMES="${PN} mono-${PN}5.0"
+PKG_NAMES="mono-${PN}5.0"
 mono_evolution_sharp5_0_CONTENTS="usr/"
 
 CYGCONF_ARGS="--disable-static"
