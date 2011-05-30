@@ -1,51 +1,29 @@
---- origsrc/evolution-sharp-0.21.1/configure.in	2010-01-25 03:29:09.965961100 -0600
-+++ src/evolution-sharp-0.21.1/configure.in	2010-01-04 17:10:49.953632500 -0600
-@@ -98,17 +98,28 @@ if test "x$GACUTIL" = "xno"; then
- 	AC_MSG_ERROR([Your mono installation doesn't expose gacutil])
- fi
- 
--if test `uname -s` = "Darwin"; then
--        LIB_PREFIX=
-+case `uname -s` in
-+    Darwin)
-+        LIB_PREFIX=lib
-+        LIB_MIDDLE=.
-         LIB_SUFFIX=.dylib
--else
--        LIB_PREFIX=.so
-+        ;;
-+    CYGWIN*)
-+        LIB_PREFIX=cyg
-+        LIB_MIDDLE=-
-+        LIB_SUFFIX=.dll
-+        ;;
-+    *)
-+        LIB_PREFIX=lib
-+        LIB_MIDDLE=.so.
-         LIB_SUFFIX=
--fi
-+        ;;
-+esac
- 
- AC_SUBST(CSC)
- AC_SUBST(GACUTIL)
- AC_SUBST(LIB_PREFIX)
-+AC_SUBST(LIB_MIDDLE)
- AC_SUBST(LIB_SUFFIX)
- 
- PKG_CHECK_MODULES([GLIB_SHARP],
---- origsrc/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2010-01-25 03:29:09.972961500 -0600
-+++ src/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2010-01-25 03:30:12.895560500 -0600
-@@ -1,7 +1,7 @@
+--- origsrc/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2009-05-26 02:25:06.000000000 -0500
++++ src/evolution-sharp-0.21.1/evolution/evolution-sharp.dll.config.in	2011-05-30 16:40:37.340334300 -0500
+@@ -1,7 +1,10 @@
  <configuration>
 -  <dllmap dll="ebook" target="libebook@EDS_VERSION@@LIB_PREFIX@.@EBOOK_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="ecal" target="libecal@EDS_VERSION@@LIB_PREFIX@.@ECAL_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="edataserver" target="libedataserver@EDS_VERSION@@LIB_PREFIX@.@EDS_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="ebackend" target="libebackend@EDS_VERSION@@LIB_PREFIX@.@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="edatacal" target="libedata-cal@EDS_VERSION@@LIB_PREFIX@.@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="ebook" target="@LIB_PREFIX@ebook@EDS_VERSION@@LIB_MIDDLE@@EBOOK_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="ecal" target="@LIB_PREFIX@ecal@EDS_VERSION@@LIB_MIDDLE@@ECAL_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="edataserver" target="@LIB_PREFIX@edataserver@EDS_VERSION@@LIB_MIDDLE@@EDS_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="ebackend" target="@LIB_PREFIX@ebackend@EDS_VERSION@@LIB_MIDDLE@@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="edatacal" target="@LIB_PREFIX@edata-cal@EDS_VERSION@@LIB_MIDDLE@@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
++  <dllmap dll="camel-1.2" target="cygcamel-1.2-23.dll" os="cygwin"/>
++  <dllmap dll="camel-provider-1.2" target="cygcamel-provider-1.2-23.dll" os="cygwin"/>
++  <dllmap dll="ebook" target="cygebook-1.2-10.dll" os="cygwin"/>
++  <dllmap dll="ecal" target="cygecal-1.2-8.dll" os="cygwin"/>
++  <dllmap dll="edataserver" target="cygedataserver-1.2-14.dll" os="cygwin"/>
++  <dllmap dll="ebackend" target="cygebackend-1.2-1.dll" os="cygwin"/>
++  <dllmap dll="edatacal" target="cygedata-cal-1.2-11.dll" os="cygwin"/>
++  <dllmap dll="eutil" target="cygeutil-0.dll" os="cygwin"/>
  </configuration>
+--- origsrc/evolution-sharp-0.21.1/evolution/src/CalComponent.cs	2009-05-26 02:25:06.000000000 -0500
++++ src/evolution-sharp-0.21.1/evolution/src/CalComponent.cs	2011-05-30 16:41:56.972889000 -0500
+@@ -474,7 +474,7 @@ namespace Evolution {
+ 		[DllImport("ecal")]
+ 			static extern void e_cal_component_set_dtstart (IntPtr raw, IntPtr dt);
+       
+-		[DllImport("ecalglue")]
++		[DllImport("evolutionglue")]
+ 			static extern void e_cal_set_icaltimetype_to_ecalcomponentdatetime (IntPtr raw, IntPtr type);
+ 
+ 		public DateTime Dtstart {
