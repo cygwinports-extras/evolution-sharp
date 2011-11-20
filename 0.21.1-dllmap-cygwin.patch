@@ -7,13 +7,13 @@
 -  <dllmap dll="edataserver" target="libedataserver@EDS_VERSION@@LIB_PREFIX@.@EDS_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="ebackend" target="libebackend@EDS_VERSION@@LIB_PREFIX@.@EBACKEND_SOVERSION@@LIB_SUFFIX@"/>
 -  <dllmap dll="edatacal" target="libedata-cal@EDS_VERSION@@LIB_PREFIX@.@EDATACAL_SOVERSION@@LIB_SUFFIX@"/>
-+  <dllmap dll="camel-1.2" target="cygcamel-1.2-23.dll" os="cygwin"/>
-+  <dllmap dll="camel-provider-1.2" target="cygcamel-provider-1.2-23.dll" os="cygwin"/>
-+  <dllmap dll="ebook" target="cygebook-1.2-10.dll" os="cygwin"/>
-+  <dllmap dll="ecal" target="cygecal-1.2-8.dll" os="cygwin"/>
-+  <dllmap dll="edataserver" target="cygedataserver-1.2-14.dll" os="cygwin"/>
++  <dllmap dll="camel-1.2" target="cygcamel-1.2-29.dll" os="cygwin"/>
++  <dllmap dll="camel-provider-1.2" target="cygcamel-provider-1.2-29.dll" os="cygwin"/>
++  <dllmap dll="ebook" target="cygebook-1.2-12.dll" os="cygwin"/>
++  <dllmap dll="ecal" target="cygecal-1.2-10.dll" os="cygwin"/>
++  <dllmap dll="edataserver" target="cygedataserver-1.2-15.dll" os="cygwin"/>
 +  <dllmap dll="ebackend" target="cygebackend-1.2-1.dll" os="cygwin"/>
-+  <dllmap dll="edatacal" target="cygedata-cal-1.2-11.dll" os="cygwin"/>
++  <dllmap dll="edatacal" target="cygedata-cal-1.2-13.dll" os="cygwin"/>
 +  <dllmap dll="eutil" target="cygeutil-0.dll" os="cygwin"/>
  </configuration>
 --- origsrc/evolution-sharp-0.21.1/evolution/src/CalComponent.cs	2009-05-26 02:25:06.000000000 -0500
